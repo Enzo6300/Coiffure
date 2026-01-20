@@ -60,7 +60,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     return date;
   }).filter(date => date.getDay() !== 0); // Exclude Sundays
 
-  const formatDate = (date) => {
+  const formatDate = (date: Date) => {
     return date.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' });
   };
 
