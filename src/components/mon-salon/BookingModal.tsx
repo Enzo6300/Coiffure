@@ -170,15 +170,18 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   <div className="p-6">
                     <h3 className="text-lg font-medium text-[#0a0a0a] mb-4">Choisissez votre créneau</h3>
                     
-                    {selectedService && (
-                      <div className="mb-6 p-4 bg-[#f5f0e8] flex items-center gap-4">
-                        <selectedService.icon className="w-6 h-6 text-[#c9a96e]" />
-                        <div>
-                          <div className="font-medium text-[#0a0a0a]">{selectedService.name}</div>
-                          <div className="text-sm text-[#0a0a0a]/60">{selectedService.price} • {selectedService.duration}</div>
+                    {selectedService && (() => {
+                      const Icon = selectedService.icon;
+                      return (
+                        <div className="mb-6 p-4 bg-[#f5f0e8] flex items-center gap-4">
+                          <Icon className="w-6 h-6 text-[#c9a96e]" />
+                          <div>
+                            <div className="font-medium text-[#0a0a0a]">{selectedService.name}</div>
+                            <div className="text-sm text-[#0a0a0a]/60">{selectedService.price} • {selectedService.duration}</div>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      );
+                    })()}
 
                     <Label className="text-[#0a0a0a]/70 mb-2 block">Date</Label>
                     <div className="flex gap-2 overflow-x-auto pb-4 mb-6">
@@ -268,7 +271,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         <Input
                           id="name"
                           value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="Marie Dupont"
                           className="mt-1"
                           required
@@ -280,7 +283,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           id="phone"
                           type="tel"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="06 12 34 56 78"
                           className="mt-1"
                           required
@@ -292,7 +295,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           id="email"
                           type="email"
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="marie@example.com"
                           className="mt-1"
                           required
