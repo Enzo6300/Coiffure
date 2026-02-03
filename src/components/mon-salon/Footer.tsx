@@ -98,9 +98,6 @@ export default function Footer() {
           <p className="text-white/40 text-sm">
             © {new Date().getFullYear()} L'Atelier Coiffure. Tous droits réservés.
           </p>
-          <p className="text-white/40 text-sm flex items-center gap-1">
-            Créé avec <Heart className="w-4 h-4 text-[#c9a96e]" /> à Paris
-          </p>
         </div>
       </div>
     </footer>
